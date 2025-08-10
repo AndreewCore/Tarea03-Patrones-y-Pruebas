@@ -8,17 +8,14 @@ public class EventoBasket extends Evento {
     private Boolean tiempoExtra;
     private int puntosLocal;
     private int puntosVisitante;
-    
 
     public EventoBasket(String nombre, LocalDateTime horaComienza) {
         super(nombre, horaComienza);
-        this.desempate = False;
-        this.tiempoExtra = False;
+        this.desempate = false;
+        this.tiempoExtra = false;
         this.puntosLocal = 0;
         this.puntosLocal = 0;
     }
-
-    
 
     @Override
     public void actualizarEstadisticas() {
@@ -28,12 +25,9 @@ public class EventoBasket extends Evento {
         System.out.println("Estadísticas de básquet actualizadas");
     }
 
-    public Integer calcularPuntaje() {
-        return estadisticas.stream().mapToInt(Integer::intValue).sum();
-    }
-
-    public String calcularResultado(){
-        return "Agregar logica";
+    @Override
+    public String calcularResultado() {
+        return estadisticas.stream().mapToInt(Integer::intValue).sum() + "";
     }
 
 }
