@@ -11,12 +11,23 @@ public class Administrador {
     private String nombre;
     private List<String> permisos;
 
-    public Administrador(String nombre){ this.id = UUID.randomUUID().toString(); this.nombre = nombre; this.permisos = new ArrayList<>(); this.permisos.addAll(Arrays.asList("CONFIGURAR","GESTIONAR","RESOLVER")); }
+    public Administrador(String nombre){ 
+        this.id = UUID.randomUUID().toString(); 
+        this.nombre = nombre; 
+        this.permisos = new ArrayList<>(); 
+        this.permisos.addAll(Arrays.asList("CONFIGURAR","GESTIONAR","RESOLVER")); 
+    }
 
-    public void configurarOpciones(){ System.out.println("👨‍💼 " + nombre + " configurando opciones del sistema"); }
+    public void configurarOpciones(){ 
+        System.out.println(nombre + " configurando opciones del sistema"); 
+    }
 
-    public void gestionarReglas(){ System.out.println("👨‍💼 " + nombre + " gestionando reglas de puntuación"); }
+    public void gestionarReglas(){ 
+        System.out.println( nombre + " gestionando reglas de puntuación");
+    }
 
-    public void procesarIncidentes(Incidente incidente){ System.out.println("👨‍💼 " + nombre + " procesando incidente: " + incidente.getDescripcion()); }
+    public void procesarIncidentes(Incidente incidente){ 
+        System.out.println(nombre + " procesando incidente: " + incidente.getDescripcion()); 
+    }
 
 }
