@@ -4,14 +4,21 @@ import java.time.LocalDateTime;
 import java.util.Random;
 
 public class EventoBasket extends Evento {
-    private Integer cuartos;
-    private Integer puntajeFinal;
+    private Boolean desempate;
+    private Boolean tiempoExtra;
+    private int puntosLocal;
+    private int puntosVisitante;
+    
 
     public EventoBasket(String nombre, LocalDateTime horaComienza) {
         super(nombre, horaComienza);
-        this.cuartos = 4;
-        this.puntajeFinal = 0;
+        this.desempate = False;
+        this.tiempoExtra = False;
+        this.puntosLocal = 0;
+        this.puntosLocal = 0;
     }
+
+    
 
     @Override
     public void actualizarEstadisticas() {
@@ -23,6 +30,10 @@ public class EventoBasket extends Evento {
 
     public Integer calcularPuntaje() {
         return estadisticas.stream().mapToInt(Integer::intValue).sum();
+    }
+
+    public String calcularResultado(){
+        return "Agregar logica";
     }
 
 }
