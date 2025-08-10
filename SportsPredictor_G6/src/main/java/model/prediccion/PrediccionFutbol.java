@@ -8,7 +8,11 @@ public class PrediccionFutbol extends Prediccion {
     private Integer golesLocal;
     private Integer golesVisitante;
 
-    public PrediccionFutbol() { super(); }
+    public PrediccionFutbol() { 
+        super(); 
+        this.golesLocal = 0;
+        this.golesVisitante = 0;
+    }
 
     @Override
     public void validarPrediccion() {
