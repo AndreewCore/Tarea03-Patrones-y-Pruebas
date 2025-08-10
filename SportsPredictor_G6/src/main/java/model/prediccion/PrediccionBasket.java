@@ -4,10 +4,15 @@ import model.evento.EventoBasket;
 import model.enums.EstadoEvento;
 
 public class PrediccionBasket extends Prediccion {
-    private Integer puntajePredicho;
-    private Integer margenVictoria;
+    private int puntosLocal;
+    private int puntosVisitantes;
+    private String resultadoPredicho;
 
-    public PrediccionBasket() { super(); }
+    public PrediccionBasket() { 
+        super(); 
+        this.puntosLocal = 0;
+        this.puntosVisitantes = 0;
+    }
 
     @Override
     public void validarPrediccion() {
@@ -28,8 +33,12 @@ public class PrediccionBasket extends Prediccion {
         return estado == model.enums.EstadoPrediccion.ACERTADO ? 15 : 0;
     }
 
-    public void evaluarPuntaje() { System.out.println("Evaluando puntaje de básquet: " + puntajePredicho); }
+    public void evaluarPuntaje() { 
+        System.out.println("Evaluando puntaje de básquet: " + puntajePredicho); 
+    }
 
-    public void setPrediccion(Integer puntaje, Integer margen) { this.puntajePredicho = puntaje; this.margenVictoria = margen; }
+    public void setPrediccion(Integer puntaje, Integer margen) { 
+        this.puntajePredicho = puntaje; this.margenVictoria = margen; 
+    }
 
 }
