@@ -10,9 +10,12 @@ import java.util.UUID;
 public abstract class Evento {
     protected String id;
     protected String nombre;
-    protected List<Participante> participantes;
+    protected List<Participante> EquipoLocal;
+    protected List<Participante> EquipoVisitante;
     protected LocalDateTime horaComienza;
     protected List<Integer> estadisticas;
+    protected int duracion;
+    protected String Lugar;
     protected EstadoEvento estado;
 
     public Evento(String nombre, LocalDateTime horaComienza) {
@@ -36,10 +39,18 @@ public abstract class Evento {
 
     public abstract void actualizarEstadisticas();
 
-    public String getId() { return id; }
-    public String getNombre() { return nombre; }
-    public EstadoEvento getEstado() { return estado; }
-    public List<Participante> getParticipantes() { return participantes; }
+    public String getId() { 
+        return id; 
+    }
+    public String getNombre() { 
+        return nombre; 
+    }
+    public EstadoEvento getEstado() { 
+        return estado; 
+    }
+    public List<Participante> getParticipantes() { 
+        return EquipoLocal;
+    }
 
     public void agregarParticipante(Participante participante) {
         participantes.add(participante);
