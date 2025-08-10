@@ -18,8 +18,8 @@ public class EventoTenis extends Evento {
     @Override
     public void actualizarEstadisticas() {
         estadisticas.clear();
-        estadisticas.add(new Random().nextInt(3) + 1); // Sets jugador 1
-        estadisticas.add(new Random().nextInt(3) + 1); // Sets jugador 2
+        estadisticas.add(new Random().nextInt(3) + 1);
+        estadisticas.add(new Random().nextInt(3) + 1);
         System.out.println("Estadísticas de tenis actualizadas");
     }
 
