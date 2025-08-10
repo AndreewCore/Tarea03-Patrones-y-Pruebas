@@ -4,13 +4,15 @@ import java.time.LocalDateTime;
 import java.util.Random;
 
 public class EventoTenis extends Evento {
-    private Integer sets;
-    private Integer games;
+    private int setsLocal;
+    private int juegos;
+    private int setsVisitantes;
 
     public EventoTenis(String nombre, LocalDateTime horaComienza) {
         super(nombre, horaComienza);
-        this.sets = 0;
-        this.games = 0;
+        this.setsLocal = 0;
+        this.juegos = 0;
+        this.setsVisitantes = 0;
     }
 
     @Override
