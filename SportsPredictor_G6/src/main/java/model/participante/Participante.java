@@ -17,6 +17,8 @@ public abstract class Participante {
 
     public abstract void actualizarEstadisticas();
 
-    public String getNombre() { return nombre; }
+    public String getNombre() { 
+        return nombre;
+    }
 
 }
