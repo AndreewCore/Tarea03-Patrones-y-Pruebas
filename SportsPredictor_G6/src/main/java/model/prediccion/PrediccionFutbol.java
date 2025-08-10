@@ -33,12 +33,11 @@ public class PrediccionFutbol extends Prediccion {
         return estado == model.enums.EstadoPrediccion.ACERTADO ? 10 : 0;
     }
 
-    public String verificarResultado() { return resultadoPredicho != null ? resultadoPredicho : "Sin predicción"; }
-
-    public void setPrediccion(String resultado, Integer golesLocal, Integer golesVisitante) {
-        this.resultadoPredicho = resultado;
-        this.golesLocal = golesLocal;
-        this.golesVisitante = golesVisitante;
+    @Override
+    public void setPrediccion(String string, int i, int j) {
+        this.resultadoPredicho = string;
+        this.golesLocal = i;
+        this.golesVisitante = j;
     }
 
 }
