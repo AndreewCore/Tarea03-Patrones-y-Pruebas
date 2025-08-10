@@ -1,3 +1,5 @@
 package observer;
 
-public interface Suscriptor { void update(String mensaje); }
+public interface Suscriptor { 
+  public void update(String mensaje); 
+}
