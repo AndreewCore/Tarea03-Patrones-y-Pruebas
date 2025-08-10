@@ -11,11 +11,14 @@ public class BasketFactory implements EventoAbstractFactory {
     private ArrayList<Participante> equipoInvitado = new ArrayList<>();
     private String liga;
 
-    public BasketFactory(String liga) { this.liga = liga; }
+    public BasketFactory(String liga) { 
+        this.liga = liga; 
+    }
 
     @Override
     public Evento crearEvento() {
-        return new EventoBasket("Partido de Básquet - " + liga, LocalDateTime.now().plusDays(1));
+        return new EventoBasket("Partido de Básquet - " + 
+                                liga, LocalDateTime.now().plusDays(1));
     }
 
     @Override
