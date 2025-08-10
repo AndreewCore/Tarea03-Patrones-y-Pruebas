@@ -15,11 +15,18 @@ public class PrediccionBasket extends Prediccion {
     }
 
     @Override
+    public void setPrediccion(String s, int i, int j) {
+        this.resultadoPredicho = s;
+        this.puntosLocal = i;
+        this.puntosVisitantes = j;
+    }
+
+    @Override
     public void validarPrediccion() {
         if (evento instanceof EventoBasket && evento.getEstado() == EstadoEvento.FINALIZADO) {
             EventoBasket basket = (EventoBasket) evento;
-            Integer puntajeReal = basket.calcularPuntaje();
-            if (Math.abs(puntajeReal - puntajePredicho) <= 5) {
+            Integer puntajeReal = Integer.parseInt(basket.calcularResultado());
+            if (Math.abs(puntajeReal - Integer.parseInt(resultadoPredicho)) <= 5) {
                 this.estado = model.enums.EstadoPrediccion.ACERTADO;
                 this.puntos = calcularPuntos();
             } else {
@@ -31,14 +38,6 @@ public class PrediccionBasket extends Prediccion {
     @Override
     public Integer calcularPuntos() {
         return estado == model.enums.EstadoPrediccion.ACERTADO ? 15 : 0;
-    }
-
-    public void evaluarPuntaje() { 
-        System.out.println("Evaluando puntaje de básquet: " + puntajePredicho); 
-    }
-
-    public void setPrediccion(Integer puntaje, Integer margen) { 
-        this.puntajePredicho = puntaje; this.margenVictoria = margen; 
     }
 
 }
