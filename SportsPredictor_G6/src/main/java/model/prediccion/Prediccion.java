@@ -20,6 +20,7 @@ public abstract class Prediccion {
 
     public abstract void validarPrediccion();
     public abstract Integer calcularPuntos();
+    public abstract void setPrediccion(String s, int i, int j);
 
     public String getId() { 
         return id; 
