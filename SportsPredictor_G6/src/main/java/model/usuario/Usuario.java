@@ -69,7 +69,7 @@ public class Usuario {
     }
 
     public void update(String mensaje){
-        System.out.println("📧 " + nombre + " recibió notificación: " + mensaje);
+        System.out.println( nombre + " recibió notificación: " + mensaje);
     }
 
 }
