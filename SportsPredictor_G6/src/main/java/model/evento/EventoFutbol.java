@@ -4,13 +4,17 @@ import java.time.LocalDateTime;
 import java.util.Random;
 
 public class EventoFutbol extends Evento {
-    private Integer duracion;
+    private Boolean penales;
     private Boolean tiempoExtra;
+    private int golesVisitante;
+    private int golesLocal;
 
     public EventoFutbol(String nombre, LocalDateTime horaComienza) {
         super(nombre, horaComienza);
-        this.duracion = 90;
+        this.penales = false;
         this.tiempoExtra = false;
+        this.golesVisitante = 0;
+        this.golesLocal = 0;
     }
 
     @Override
