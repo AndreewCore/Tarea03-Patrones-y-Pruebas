@@ -21,13 +21,29 @@ public abstract class Prediccion {
     public abstract void validarPrediccion();
     public abstract Integer calcularPuntos();
 
-    public String getId() { return id; }
-    public Usuario getUsuario() { return usuario; }
-    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
-    public Evento getEvento() { return evento; }
-    public void setEvento(Evento evento) { this.evento = evento; }
-    public EstadoPrediccion getEstado() { return estado; }
-    public void setEstado(EstadoPrediccion estado) { this.estado = estado; }
-    public Integer getPuntos() { return puntos; }
+    public String getId() { 
+        return id; 
+    }
+    public Usuario getUsuario() { 
+        return usuario; 
+    }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario; 
+    }
+    public Evento getEvento() { 
+        return evento; 
+    }
+    public void setEvento(Evento evento) { 
+        this.evento = evento; 
+    }
+    public EstadoPrediccion getEstado() { 
+        return estado; 
+    }
+    public void setEstado(EstadoPrediccion estado) { 
+        this.estado = estado;
+    }
+    public Integer getPuntos() {
+        return puntos;
+    }
 
 }
