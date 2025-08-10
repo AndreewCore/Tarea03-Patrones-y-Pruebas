@@ -12,10 +12,10 @@ import strategy.*;
 
 public class SportsPredictor {
     public static void main(String[] args) {
-        System.out.println("🏟️  INICIANDO SISTEMA SPORTSPREDICTOR 🏟️");
-        EventoAbstractFactory futbolFactory = new FutbolFactory("Liga Española");
-        EventoAbstractFactory basketFactory = new BasketFactory("NBA");
-        EventoAbstractFactory tenisFactory = new TenisFactory("ATP Tour");
+        System.out.println("INICIANDO SISTEMA SPORTSPREDICTOR");
+        EventoAbstractFactory futbolFactory = new FutbolFactory("Liga Futbol");
+        EventoAbstractFactory basketFactory = new BasketFactory("Liga Basket");
+        EventoAbstractFactory tenisFactory = new TenisFactory("Liga Tenis");
 
         Evento eventoFutbol = futbolFactory.crearEvento();
         Evento eventoBasket = basketFactory.crearEvento();
@@ -25,26 +25,22 @@ public class SportsPredictor {
         Participante jugadorBasket = basketFactory.crearParticipante();
         Participante jugadorTenis = tenisFactory.crearParticipante();
 
-        eventoFutbol.agregarParticipante(jugadorFutbol);
-        eventoBasket.agregarParticipante(jugadorBasket);
-        eventoTenis.agregarParticipante(jugadorTenis);
+        eventoFutbol.agregarParticipante(jugadorFutbol, eventoFutbol.getEquipoLocal());
+        eventoBasket.agregarParticipante(jugadorBasket, eventoBasket.getEquipoLocal());
+        eventoTenis.agregarParticipante(jugadorTenis, eventoTenis.getEquipoLocal());
 
         Usuario usuario1 = new Usuario("Carlos", "carlos@email.com");
         Usuario usuario2 = new Usuario("María", "maria@email.com");
-        SistemaRanking ranking = new SistemaRanking();
-        SistemaEstadisticas estadisticas = new SistemaEstadisticas();
 
         EventoPublisher publisher = new EventoPublisher(eventoFutbol);
-        UsuarioSuscriptor us1 = new UsuarioSuscriptor(usuario1);
-        UsuarioSuscriptor us2 = new UsuarioSuscriptor(usuario2);
-        publisher.suscribirse(us1);
-        publisher.suscribirse(us2);
-        publisher.suscribirse(ranking);
-        publisher.suscribirse(estadisticas);
+        Notificador n1 = new Notificador();
 
-        Notificador notificadorBase = new NotificadorBase();
+        Usuario us1 = new Usuario("Pepe", "pepe@gmail.com");
+        publisher.suscribirse(n1);
+
+        Notificador notificadorBase = new Notificador();
         Notificador notificadorCompleto = new SMS(new WhatsApp(new Correo(notificadorBase)));
-        notificadorCompleto.enviar("¡Tu predicción ha sido procesada!");
+        notificadorCompleto.update("¡Tu predicción ha sido procesada!");
 
         usuario1.realizarPrediccion(eventoFutbol, "resultado");
         usuario2.realizarPrediccion(eventoBasket, "puntaje");
@@ -56,7 +52,7 @@ public class SportsPredictor {
             }
         }
 
-        System.out.println("\n⚽ SIMULANDO EVENTOS:");
+        System.out.println("\nSIMULANDO EVENTOS:");
         eventoFutbol.iniciarEvento();
         eventoBasket.iniciarEvento();
         eventoTenis.iniciarEvento();
@@ -81,7 +77,6 @@ public class SportsPredictor {
             else if (pred instanceof PrediccionTenis) calculadora.usarEstrategia(new PuntajeTenis());
             int pts = calculadora.ejecutarEstrategia(pred);
             usuario1.agregarPuntos(pts);
-            ranking.actualizarRanking(usuario1.getNombre(), pts);
             System.out.println("Usuario " + usuario1.getNombre() + " obtuvo " + pts + " puntos");
         }
 
@@ -102,8 +97,7 @@ public class SportsPredictor {
 
         usuario1.consultarPuntos();
         usuario2.consultarPuntos();
-        ranking.mostrarRanking();
 
-        System.out.println("🎉 DEMOSTRACIÓN COMPLETADA 🎉");
+        System.out.println("DEMOSTRACIÓN COMPLETADA");
     }
 }

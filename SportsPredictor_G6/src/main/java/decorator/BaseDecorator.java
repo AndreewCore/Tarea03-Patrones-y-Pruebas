@@ -1,6 +1,6 @@
 package decorator;
 
-public abstract class BaseDecorator implements Notificador {
+public abstract class BaseDecorator extends Notificador {
     protected Notificador envolviendo;
 
     public BaseDecorator(Notificador n){ 
@@ -9,10 +9,6 @@ public abstract class BaseDecorator implements Notificador {
 
     @Override public void update(String contexto){ 
         if(envolviendo!=null) envolviendo.update(contexto); 
-    }
-
-    @Override public void enviar(String mensaje){ 
-        if(envolviendo!=null) envolviendo.enviar(mensaje); 
     }
 
 }

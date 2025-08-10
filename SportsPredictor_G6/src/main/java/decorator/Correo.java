@@ -5,8 +5,9 @@ public class Correo extends BaseDecorator {
         super(n);
     }
 
-    @Override public void enviar(String mensaje){ 
-        super.enviar(mensaje); System.out.println(" Enviando por CORREO: " + mensaje); 
+    @Override public void update(String mensaje){ 
+        super.update(mensaje);
+        System.out.println(" Enviando actualización por CORREO: " + mensaje); 
     }
 
 }
