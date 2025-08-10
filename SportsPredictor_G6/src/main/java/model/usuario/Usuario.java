@@ -3,9 +3,6 @@ package model.usuario;
 import model.evento.Evento;
 import model.prediccion.Prediccion;
 import creational.EventoAbstractFactory;
-import creational.FutbolFactory;
-import creational.BasketFactory;
-import creational.TenisFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -27,26 +24,15 @@ public class Usuario {
         this.mediosNotif = new ArrayList<>();
     }
 
-    public void realizarPrediccion(Evento evento, String tipoPrediccion, String medioNotificacion){
-        EventoAbstractFactory factory = obtenerFactory(evento);
+    public void realizarPrediccion(Evento evento, String tipoPrediccion){
+        EventoAbstractFactory factory = evento.obtenerFactory(evento);
         if (factory != null){
             Prediccion p = factory.crearPrediccion();
             p.setUsuario(this);
             p.setEvento(evento);
             predicciones.add(p);
-            mediosNotif.add(p);
             System.out.println(nombre + " realizó predicción para: " + evento.getNombre());
         }
-    }
-
-    private EventoAbstractFactory obtenerFactory(Evento evento){
-        if (evento instanceof model.evento.EventoFutbol)
-            return new FutbolFactory("Liga Futbol");
-        else if (evento instanceof model.evento.EventoBasket)
-            return new BasketFactory("Liga Basket");
-        else if (evento instanceof model.evento.EventoTenis)
-            return new TenisFactory("Liga Tenis");
-        return null;
     }
 
     public void consultarPuntos(){
