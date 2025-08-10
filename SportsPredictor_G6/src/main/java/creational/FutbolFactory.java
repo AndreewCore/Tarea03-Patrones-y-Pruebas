@@ -11,11 +11,14 @@ public class FutbolFactory implements EventoAbstractFactory {
     private ArrayList<Participante> equipoInvitado = new ArrayList<>();
     private String liga;
 
-    public FutbolFactory(String liga) { this.liga = liga; }
+    public FutbolFactory(String liga) { 
+        this.liga = liga; 
+    }
 
     @Override
     public Evento crearEvento() {
-        return new EventoFutbol("Partido de Fútbol - " + liga, LocalDateTime.now().plusDays(1));
+        return new EventoFutbol("Partido de Fútbol - " + 
+                                liga, LocalDateTime.now().plusDays(1));
     }
 
     @Override
