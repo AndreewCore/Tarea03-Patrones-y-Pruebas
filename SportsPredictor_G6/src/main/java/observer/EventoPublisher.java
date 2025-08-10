@@ -6,7 +6,9 @@ public class EventoPublisher extends Publisher {
     private Evento evento;
     private String resultado;
 
-    public EventoPublisher(Evento evento) { this.evento = evento; }
+    public EventoPublisher(Evento evento) { 
+        this.evento = evento; 
+    }
 
     public void actualizarResultado(String nuevoResultado) {
         this.resultado = nuevoResultado;
@@ -14,6 +16,9 @@ public class EventoPublisher extends Publisher {
         notificarCambio();
     }
 
-    public void notificarCambio() { System.out.println("Notificando cambio en evento: " + evento.getNombre()); notificarSuscriptor(); }
+    public void notificarCambio() {
+        System.out.println("Notificando cambio en evento: " + evento.getNombre()); 
+        notificarSuscriptor();
+    }
 
 }
