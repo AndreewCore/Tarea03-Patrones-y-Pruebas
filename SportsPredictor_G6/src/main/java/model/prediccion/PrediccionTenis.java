@@ -7,7 +7,9 @@ public class PrediccionTenis extends Prediccion {
     private String ganadorPredicho;
     private Integer setsPredichos;
 
-    public PrediccionTenis() { super(); }
+    public PrediccionTenis() { 
+        super(); 
+    }
 
     @Override
     public void validarPrediccion() {
@@ -28,8 +30,12 @@ public class PrediccionTenis extends Prediccion {
         return estado == model.enums.EstadoPrediccion.ACERTADO ? 12 : 0;
     }
 
-    public String verificarGanador() { return ganadorPredicho != null ? ganadorPredicho : "Sin predicción"; }
+    public String verificarGanador() { 
+        return ganadorPredicho != null ? ganadorPredicho : "Sin predicción"; 
+    }
 
-    public void setPrediccion(String ganador, Integer sets) { this.ganadorPredicho = ganador; this.setsPredichos = sets; }
+    public void setPrediccion(String ganador, Integer sets) { 
+        this.ganadorPredicho = ganador; this.setsPredichos = sets; 
+    }
 
 }
