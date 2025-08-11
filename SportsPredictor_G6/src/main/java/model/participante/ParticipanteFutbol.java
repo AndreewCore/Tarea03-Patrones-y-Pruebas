@@ -23,4 +23,8 @@ public class ParticipanteFutbol extends Participante {
         System.out.println(nombre + " ha marcado un gol!");
     }
 
+    public String getPosicion() {
+        return posicion;
+    }
+
 }
